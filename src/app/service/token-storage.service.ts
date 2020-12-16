@@ -9,32 +9,32 @@ const USER_KEY = 'auth-user';
 })
 export class TokenStorageService {
 
-  constructor(private jwtService: JwtService) { 
-}
+    constructor(private jwtService: JwtService) { 
+  }
 
-signOut(): void {
-  window.localStorage.clear();
-}
+  signOut(): void {
+    window.localStorage.clear();
+  }
 
-  public saveToken(token: string): void {
+    public saveToken(token: string): void {
 
-  window.localStorage.removeItem(TOKEN_KEY);
-  window.localStorage.setItem(TOKEN_KEY, token);
-  //this.jwtService.DecodeToken(jwtTokenValue);
-}
+    window.localStorage.removeItem(TOKEN_KEY);
+    window.localStorage.setItem(TOKEN_KEY, token);
+    //this.jwtService.DecodeToken(jwtTokenValue);
+  }
 
-  public getToken(): string | null {
+    public getToken(): string | null {
 
-  return localStorage.getItem(TOKEN_KEY);
+    return localStorage.getItem(TOKEN_KEY);
 
-}
+  }
 
-  public saveUser(user: any): void {
-  window.localStorage.removeItem(USER_KEY);
-  window.localStorage.setItem(USER_KEY, JSON.stringify(user));
-}
+    public saveUser(user: any): void {
+    window.localStorage.removeItem(USER_KEY);
+    window.localStorage.setItem(USER_KEY, JSON.stringify(user));
+  }
 
-  public getUser(): any {
-  return JSON.parse(localStorage.getItem(USER_KEY));
-}
+    public getUser(): any {
+     return localStorage.getItem(USER_KEY);
+  }
 }

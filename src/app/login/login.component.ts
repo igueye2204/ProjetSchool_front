@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
+import { JwtService } from '../service/jwt.service';
 import { TokenStorageService } from '../service/token-storage.service';
 //const linkHome = 'home';
 
@@ -19,11 +20,11 @@ export class LoginComponent implements OnInit {
   roles: string[] = [];
  
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router) { }
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router, private jwtservice:JwtService) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
-      this.isLoggedIn = true;
+      this.isLoggedIn = true;      
       this.roles = this.tokenStorage.getUser().roles;
     }
   }
@@ -37,8 +38,8 @@ export class LoginComponent implements OnInit {
         
         this.isLoginFailed = false;
         this.isLoggedIn = true;
+        console.log(this.roles);    
         this.roles = this.tokenStorage.getUser().roles;
-        console.log(this.roles);
        // this.router.navigate(linkHome);
       },
       err => {
@@ -48,9 +49,6 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  private newMethod(): { username: string; password: string; } {
-    return this.form;
-  }
 
   reloadPage(): void {
     window.location.reload();

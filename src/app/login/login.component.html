@@ -16,18 +16,18 @@
             <form  *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate >          
               <div class="form-group">
                   <span class="fa fa-user"></span>
-                  <input type="text"  name="username" class="form-control" [(ngModel)]="form.username" required #username="ngModel" Placeholder="Username" >
+                  <input type="text"  name="username" class="form-control" [(ngModel)]="form.username" #username="ngModel" Placeholder="Username" required >
                   <div class="alert alert-danger" role="alert" *ngIf="f.submitted && username.invalid" >Username is required!</div>
               </div> 
               <div class="form-group">
                   <span class="fa fa-lock"></span>
-                  <input type="password"  name="password" class="form-control" [(ngModel)]="form.password"  minlength="6" #password="ngModel" >              
+                  <input type="password"  name="password" class="form-control" [(ngModel)]="form.password"  minlength="6" #password="ngModel" required >              
                   <div class="alert alert-danger" role="alert" *ngIf="f.submitted && password.invalid" >password is required!</div>
                   <div *ngIf="password.errors"> Password must be at least 6 characters </div>
               </div>
               <div>
                   <span style="width:48%; text-align:left;  display: inline-block;">
-                    <a class="small-text" href="#">Forgot password?</a>
+                    <a class="small-text" href="/register">Forgot password?</a>
                   </span>
                   <div class="form-group">
                     <button class="btn btn-primary btn-block">Login</button>

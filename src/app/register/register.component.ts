@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../service/auth.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -20,6 +21,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): void {
     this.authService.register(this.form).subscribe(
+      
       data => {
         console.log(data);
         this.isSuccessful = true;
