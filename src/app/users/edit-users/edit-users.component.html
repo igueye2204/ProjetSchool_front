@@ -1,0 +1,59 @@
+<!-- Default form register -->
+<div class=" row p-3 justify-content-center costum-line">
+  <ng-container *ngIf="isSuccessful" class="border border-light p-5 w-50 shadow-lg p-3 bg-white">
+    <p class="text-center alert alert-success p-2 rounded">
+      Successfully Update!
+    </p>
+
+  </ng-container>
+
+  <form name="form" #f="ngForm" *ngIf="!isSuccessful" (ngSubmit)="onSubmit(f)"  novalidate class="text-center border border-light w-75 h-75 shadow-lg p-3 mb-5 bg-white ">
+
+   <p class="h4 mb-4">Sign up</p>
+
+
+   <div class="col">
+   <!-- <div class="form-row mb-4">
+       <select name="profil" class="form-control" name="profil" [(ngModel)]="user.profil"  value="Choix de profil">
+         <option value="">Choix de profil</option>
+       <option value="CM">CM</option>
+       <option value="Apprenant">Apprenant</option>
+       <option value="Formateur">Formateur</option>
+       <option value="Admin">Admin</option>
+       </select>
+     </div> -->
+     <div>
+      <img  id="profile-img" [(ngModel)]="user.avatar" class="profile-img-card" />
+     </div>
+     <hr>
+
+     <div class="form-row mb-4">
+       <div class="col">
+         <!-- First name -->
+         <input type="text" class="form-control" name="prenom" [(ngModel)]="user.prenom" placeholder="Prenom"  />
+       </div>
+       <div class="col">
+         <!-- Last name -->
+         <input type="text" class="form-control" name="nom" [(ngModel)]="user.nom" placeholder="Nom"  />
+       </div>
+     </div>
+
+
+     <!-- Username -->
+     <input type="text" class="form-control" name="username" [(ngModel)]="user.username" minlength="3" maxlength="20"   id="defaultRegisterFormUsername" class="form-control mb-4" placeholder="Username">
+
+
+            <!-- E-mail -->
+   <input type="email" class="form-control mb-4" name="email" [(ngModel)]="user.email" placeholder="E-mail"  />
+
+        <!-- Newsletter -->
+     <input type="file" multiple class="form-control" (change)="onFileSelect($event)" name="avatar" >
+     </div>
+
+
+   <!-- Sign up button -->
+   <button class="btn btn-primary" type="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Submit</font></font></button>
+ <br>
+ </form>
+ </div>
+ <!-- Default form register -->

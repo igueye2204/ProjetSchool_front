@@ -7,11 +7,12 @@ import {
   HTTP_INTERCEPTORS
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { TokenStorageService } from '../service/token-storage.service'; 
+import { TokenStorageService } from '../service/token-storage.service';
 
 const TOKEN_HEADER_KEY = 'Authorization';
 
 @Injectable()
+
 export class TokenInterceptorInterceptor implements HttpInterceptor {
 
   constructor(private tokenService: TokenStorageService) {}
@@ -20,15 +21,17 @@ export class TokenInterceptorInterceptor implements HttpInterceptor {
 
     let authReq = request;
     const token = this.tokenService.getToken();
-    console.log(token); 
-    
+
+
     if (token != null) {
+
       authReq = request.clone({ headers: request.headers.set(TOKEN_HEADER_KEY, 'Bearer ' + token) });
+
     }
     return next.handle(authReq);
   }
 }
 
-export const authInterceptorProviders = [
-  { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorInterceptor, multi: true }
-];
+ export const authInterceptorProviders = [
+   { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorInterceptor, multi: true }
+ ];

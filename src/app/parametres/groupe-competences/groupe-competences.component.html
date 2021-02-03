@@ -1,0 +1,33 @@
+
+<hr>
+<a href="parametres/groupecompetences/addgrpcompetence" style="margin-left: 10px;"> <button type = "button" class = "btn btn-outline-secondary align-start"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Creer un Groupe de compétence </font> </font> </button></a>
+<hr>
+<h2 class="text-center">  Liste des Groupe de Competences</h2>
+<hr>
+<div class=" row">
+    <div class="col-sm-4 mb-4" *ngFor="let get of GET" >
+        <div class="card center" style="width: 20rem;">
+          <div class="card-header col" >{{get.libelle | summarize: 25}}
+            <div class="close">
+              <a href="" style=" margin-right: 10px;" ><i class="fas fa-file-download"></i></a>
+              <a href="" style=" margin-right: 10px;"><i class="fa fa-pencil" aria-hidden="true"></i> </a>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="font-size: xx-large; margin-right: 5px;"> <span aria-hidden="true">&times;</span></button>
+          </div>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">{{get.descriptif}}</h4>
+            <p class="card-text"></p>
+          </div>
+          <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action ">{{get.competences}}</a>
+            <a href="#" class="list-group-item list-group-item-action">Tags</a>
+          </div>
+    </div>
+
+    </div>
+
+
+
+
+</div>
+

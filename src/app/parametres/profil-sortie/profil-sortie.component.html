@@ -1,0 +1,148 @@
+<!-- <br>
+<div class="col-10 align-items-center">
+    <div class="row justify-content-between">
+
+      <button type = "button" class = "btn btn-outline-secondary align-start"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Creer Profil </font> </font> </button>
+
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Chercher">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chercher</font></font></button>
+      </form>
+    </div>
+
+    <hr>
+    <h2 class="">Liste des profils de sortie</h2>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Libelle</font></font></th>
+            <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Actions</font></font></th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr class="table-light">
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Développeur back</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+              <button type = "button" class = "btn btn-info"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Edit </font> </ font > </button>
+              <button type = "button" class = "btn btn-danger"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Delete </font> </ font > </button>
+            </font></font></td>
+          </tr>
+
+          <tr class="table-light">
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Développeur front</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+              <button type = "button" class = "btn btn-info"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Edit </font> </ font > </button>
+              <button type = "button" class = "btn btn-danger"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Delete </font> </ font > </button>
+            </font></font></td>
+          </tr>
+
+          <tr class="table-light">
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Développeur fullstack</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+              <button type = "button" class = "btn btn-info"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Edit </font> </ font > </button>
+              <button type = "button" class = "btn btn-danger"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Delete </font> </ font > </button>
+            </font></font></td>
+          </tr>
+
+          <tr class="table-light">            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Intégrateur Web</font></font></td>
+            <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+              <button type = "button" class = "btn btn-info"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Edit </font> </ font > </button>
+              <button type = "button" class = "btn btn-danger"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Delete </font> </ font > </button>
+            </font></font></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+  </div>
+
+ -->
+
+<!-- <div class=" shadow p-3 mb-5 bg-white justify-content-center" style="border-radius: 0px 40px 0px 40px;">
+  <hr>
+  <div class="row p-3 justify-content-center costum-line">
+    <form [formGroup] ="contactForm" *ngIf="!isSuccessful" (ngSubmit)="onSubmit()"  novalidate  class="text-center border border-light p-5 w-50 shadow-lg p-3 mb-5 bg-white">
+
+      <p class="h4 mb-4">Create new profil</p>
+
+       libelle
+      <input type="text" name="libelle" formControlName="libelle"  class="form-control mb-4" placeholder="Libelle">
+
+
+      <div class="d-flex justify-content-around">
+      Sign in button
+      <button mdbBtn color="info" block="true" class="my-4 btn btn-success" type="submit">Enregistrer</button>
+      </div>
+    </form>
+   </div>
+   <hr>
+  <div class="row justify-content-between">
+
+    <a href="admin/profil/addprofil" style="margin-left: 10px;"><button type = "button" class = "btn btn-outline-secondary align-start"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Creer Profil de Sortie </font> </font> </button></a>
+
+    <form class="form-inline my-2 my-lg-0" style="margin-right: 10px;">
+      <input class="form-control mr-sm-2" type="text" placeholder="Chercher">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chercher</font></font></button>
+    </form>
+  </div> -->
+
+  <hr>
+  <h2 class="text-center">Liste des profils de sortie</h2>
+  <table class="table table-hover table-responsive-lg">
+      <thead>
+        <tr>
+          <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ID</font></font></th>
+          <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Libelle</font></font></th>
+          <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Détails</font></font></th>
+          <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Edit</font></font></th>
+          <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Delete</font></font></th>
+            </tr>
+      </thead>
+      <tbody>
+
+        <tr class="table-light" *ngFor="let content of contents" >
+          <th scope="row"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ content }}</font></font></th>
+          <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ content }}</font></font></td>
+          <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+            <a href="#" class="align-item-center"><span style="font-size: 20px;"><i class="fa fa-info-circle"></i></span></a>
+          </font></font></td>
+          <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+            <a href="admin/users/adduser"><span style="font-size: 20px; color: Dodgerblue;"><i class="fas fa-edit"></i></span></a>
+              </font></font></td>
+          <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+            <a href="#"><span style="font-size: 20px; color: red;"><i class="fas fa-trash"></i></span></a>
+          </font></font></td>
+        </tr>
+
+
+
+      </tbody>
+    </table>
+
+    <div>
+      <ul class="pagination">
+        <li class="page-item disabled">
+          <a class="page-link" href="#">&laquo;</a>
+        </li>
+        <li class="page-item active">
+          <a class="page-link" href="#">1</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">3</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">4</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">5</a>
+        </li>
+        <li class="page-item">
+          <a class="page-link" href="#">&raquo;</a>
+        </li>
+      </ul>
+    </div>
+

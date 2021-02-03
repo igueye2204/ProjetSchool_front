@@ -5,43 +5,55 @@
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!-- Include the above in your HEAD tag -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script><!-- Include the above in your HEAD tag -->
 
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<div class="main">  
+<div class="page">
   <div class="container">
-    <div class="middle">
-          <div id="login">
-            <form  *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate >          
-              <div class="form-group">
-                  <span class="fa fa-user"></span>
-                  <input type="text"  name="username" class="form-control" [(ngModel)]="form.username" #username="ngModel" Placeholder="Username" required >
-                  <div class="alert alert-danger" role="alert" *ngIf="f.submitted && username.invalid" >Username is required!</div>
-              </div> 
-              <div class="form-group">
-                  <span class="fa fa-lock"></span>
-                  <input type="password"  name="password" class="form-control" [(ngModel)]="form.password"  minlength="6" #password="ngModel" required >              
-                  <div class="alert alert-danger" role="alert" *ngIf="f.submitted && password.invalid" >password is required!</div>
-                  <div *ngIf="password.errors"> Password must be at least 6 characters </div>
-              </div>
-              <div>
-                  <span style="width:48%; text-align:left;  display: inline-block;">
-                    <a class="small-text" href="/register">Forgot password?</a>
-                  </span>
-                  <div class="form-group">
-                    <button class="btn btn-primary btn-block">Login</button>
-                  </div> 
-                  <div class="form-group">
-                    <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed" > ce identifiant n'existe pas: {{ errorMessage }} </div>
-                  </div>     
-              </div>     
-            </form>
-        </div> 
-        <!-- end login -->
-        <div class="logo"><p>Sonatel Academy</p><div class="clearfix"></div>
-      </div>         
+    <img src="../images/téléchargement.png" alt="">
+    <div class="left">
+      <div class="login">Login</div>
+      <div class="eula">Bienvenu sur notre platforme. <br> Veuillez entrez votre login et mot de passe</div>
     </div>
-    <div class="alert alert-success" *ngIf="isLoggedIn">Logged in as {{ roles }}.</div>
+    <div class="right">
+      <svg viewBox="0 0 320 300">
+        <defs>
+          <linearGradient
+                          inkscape:collect="always"
+                          id="linearGradient"
+                          x1="13"
+                          y1="193.49992"
+                          x2="307"
+                          y2="193.49992"
+                          gradientUnits="userSpaceOnUse">
+            <stop
+                  style="stop-color:#ffffff;"
+                  offset="0"  
+                  id="stop876" />
+            <stop
+                  style="stop-color:#363636;"
+                  offset="1"
+                  id="stop878" />
+          </linearGradient>
+        </defs>
+        <path d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143" />
+      </svg>
+      <form class="form"  name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate >
+        
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="email" name="username"  [(ngModel)]="form.username" #username="ngModel" Placeholder="Username" required >
+        </div>
+        
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" class="form-control" name="password" [(ngModel)]="form.password"  minlength="6" #password="ngModel" required >
+        </div>
+        
+        <div class="form-group">
+             <input type="submit" id="submit" value="Login" >
+        </div>
+       
+      </form>
+    </div>
   </div>
 </div>

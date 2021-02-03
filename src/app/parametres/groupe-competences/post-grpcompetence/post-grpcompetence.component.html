@@ -1,0 +1,47 @@
+<div class=" row p-3 justify-content-center costum-line">
+
+  <form class="form"  name="form"  (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm" novalidate class="text-center border border-light w-75 h-75 shadow-lg p-3 mb-5 bg-white " >
+
+    <hr>
+    <p class="h4 mb-4">Creation de Groupe de Compétence</p>
+    <hr>
+
+    <div class="form-group">
+      <input type="text" id="email" name="libelle"  [(ngModel)]="form.libelle" #libelle="ngModel" Placeholder="Libelle" class="form-control" required >
+    </div>
+
+    <div class="form-group">
+      <textarea id="descriptif" class="form-control" name="descriptif" [(ngModel)]="form.descriptif" #descriptif="ngModel" Placeholder="Descritifs"  cols="20" rows="7"></textarea>
+    </div>
+
+    <p style="text-align: center">Multi-Select</p>
+    <div >
+
+      <ng-multiselect-dropdown
+      [placeholder]="'custom placeholder'"
+      [settings]="dropdownSettings"
+      [data]="dropdownList"
+      (onSelect)="onItemSelect($event)"
+      (onSelectAll)="onSelectAll($event)"
+      [(ngModel)]="form.competences"
+      name="competences"
+      #competences="ngModel"
+      >
+    </ng-multiselect-dropdown>
+
+    <br>
+  </div>
+
+  <div class="form-group">
+    <button class="btn btn-primary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Submit</font></font></button>
+  </div>
+
+  <ng-container *ngIf="isSuccessful" class="border border-light p-5 w-50 shadow-lg p-3 bg-white">
+    <p class="text-center alert alert-success p-2 rounded">
+      Create new Groupe Competence successfully!
+    </p>
+
+  </ng-container>
+</form>
+</div>
+

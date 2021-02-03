@@ -1,0 +1,70 @@
+
+<div class=" shadow p-3 mb-5 bg-white justify-content-center" style="border-radius: 0px 40px 0px 40px;">
+  <hr>
+  <div class="row justify-content-between">
+
+    <a href="admin/profil/addprofil" style="margin-left: 10px;"><button type = "button" class = "btn btn-outline-secondary align-start"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Creer Profil </font> </font> </button></a>
+
+    <form class="form-inline my-2 my-lg-0" style="margin-right: 10px;">
+      <input class="form-control mr-sm-2" type="text" placeholder="Chercher">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chercher</font></font></button>
+    </form>
+  </div>
+
+  <hr>
+  <div class="d-flex flex-row-reverse bd-highlight mb-2">
+    <div class="p-2 bd-highlight">
+      <select (change)="onTableSizeChange($event)" class="custom-select">
+        <option *ngFor="let size of tableSizes" [ngValue]="size">
+          {{ size }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <h2 class="text-center">Liste des profils</h2>
+  <table class="table table-hover table-responsive-lg">
+      <thead>
+        <tr>
+          <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ID</font></font></th>
+          <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Libelle</font></font></th>
+          <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Détails</font></font></th>
+          <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Edit</font></font></th>
+          <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Delete</font></font></th>
+            </tr>
+      </thead>
+      <tbody>
+
+        <tr class="table-light" *ngFor="let post of POSTS | paginate : {
+          itemsPerPage: tableSize,
+          currentPage: page,
+          totalItems: count
+        };
+          let i = index"
+          >
+          <!-- [class.active]="i == currentIndex" -->
+          <th scope="row"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{post.id}}</font></font></th>
+          <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{post.libelle}}</font></font></td>
+          <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+            <a href="#" class="align-item-center"><span style="font-size: 20px;"><i class="fa fa-info-circle"></i></span></a>
+          </font></font></td>
+          <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+            <a href="admin/profil/editprofil/{{post.id}}"><span style="font-size: 20px; color: Dodgerblue;"><i class="fas fa-edit"></i></span></a>
+              </font></font></td>
+          <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+            <a href="#"><span style="font-size: 20px; color: red;"><i class="fas fa-trash"></i></span></a>
+          </font></font></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <div class="d-flex justify-content-center">
+      <pagination-controls
+        responsive="true"
+        previousLabel="Prev"
+        nextLabel="Next"
+        (pageChange)="onTableDataChange($event)">
+      </pagination-controls>
+    </div>
+
+</div>

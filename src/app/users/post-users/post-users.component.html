@@ -1,0 +1,121 @@
+<!-- <div class="center">
+  <hr>
+
+    <div class="row" id="forms">
+      <div class="col-6">
+      <img  id="profile-img" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" class="profile-img-card" />
+
+      <form  [formGroup] ="contactForm" (ngSubmit)="onSubmit()"  novalidate >
+
+
+          <label for="username">Username</label>
+          <input type="text" class="form-control" name="username" formControlName="username" minlength="3" maxlength="20"  required />
+
+
+
+          <label for="prenom">prenom</label>
+          <input type="text" class="form-control" name="prenom" formControlName="prenom"  required />
+
+
+
+            <label for="nom">nom</label>
+            <input type="text" class="form-control" name="nom" formControlName="nom"  required />
+
+
+
+              <label for="email">Email</label>
+              <input type="email" class="form-control" name="email" formControlName="email" required />
+
+
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" formControlName="password"   minlength="6" required />
+
+
+
+            <label for="profil">profil</label>
+            <input type="text" class="form-control" name="profil" formControlName="profil"  required />
+
+
+
+            <label for="avatar">avatar</label>
+            <input type="file" multiple class="form-control" (change)="onFileSelect($event)" name="avatar" formControlName="avatar"  />
+
+          <hr>
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" >Sing Up</button>
+          </div>
+
+          <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">Signup failed!<br />{{ errorMessage }}</div>
+
+        </form>
+
+       <div class="alert alert-success" >Your registration is successful!</div>
+   </div>
+</div>
+
+</div>
+ -->
+
+ <!-- Default form register -->
+ <ng-container *ngIf="isSuccessful" class="border border-light p-5 w-50 shadow-lg p-3 bg-white">
+   <p class="text-center alert alert-success p-2 rounded">
+     Create new user successfully!
+   </p>
+
+ </ng-container>
+ <div class=" row p-3 justify-content-center costum-line">
+ <form [formGroup] ="contactForm" (ngSubmit)="onSubmit()"   *ngIf="!isSuccessful"  novalidate class="text-center border border-light w-75 h-75 shadow-lg p-3 mb-5 bg-white ">
+
+  <p class="h4 mb-4">Sign up</p>
+
+  <div class="form-row mb-4">
+    <div class="col">
+      <!-- First name -->
+      <input type="text" class="form-control" name="prenom" formControlName="prenom" placeholder="Prenom" required />
+    </div>
+    <div class="col">
+      <!-- Last name -->
+      <input type="text" class="form-control" name="nom" formControlName="nom" placeholder="Nom" required />
+    </div>
+  </div>
+
+
+  <!-- Username -->
+  <input type="text" class="form-control" name="username" formControlName="username" minlength="3" maxlength="20"  required id="defaultRegisterFormUsername" class="form-control mb-4" placeholder="Username">
+
+  <!-- E-mail -->
+  <input type="email" class="form-control mb-4" name="email" formControlName="email" placeholder="E-mail" required />
+  <!-- Password -->
+  <input type="password"  class="form-control" name="password" formControlName="password"   minlength="6" required  placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+  <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+    At least 8 characters and 1 digit
+  </small>
+
+  <div class="form-row mb-4">
+    <div class="col">
+      <select name="profil" class="form-control" name="profil" formControlName="profil"  required value="Choix de profil  ">
+        <option value="">Choix de profil</option>
+      <option value="CM">CM</option>
+      <option value="Apprenant">Apprenant</option>
+      <option value="Formateur">Formateur</option>
+      <option value="Admin">Admin</option>
+      </select>
+    </div>
+      <div class="col">
+          <!-- Phone number -->
+        <input type="text" name="phone" class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+        <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
+          Optional - for two-step authentication
+        </small>
+      </div>
+       <!-- Newsletter -->
+    <input type="file" multiple class="form-control" (change)="onFileSelect($event)" name="avatar" formControlName="avatar">
+    </div>
+
+
+  <!-- Sign up button -->
+  <button class="btn btn-primary"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Submit</font></font></button>
+<br>
+</form>
+</div>
+<!-- Default form register -->
