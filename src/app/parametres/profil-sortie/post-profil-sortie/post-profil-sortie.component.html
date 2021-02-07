@@ -1,0 +1,21 @@
+<div class="row p-3 justify-content-center costum-line">
+  <ng-container *ngIf="isSuccessful" class="border border-light p-5 w-50 shadow-lg p-3 bg-white">
+    <p class="text-center alert alert-success p-2 rounded">
+      Successfully Update!
+    </p>
+
+  </ng-container>
+  <form [formGroup] ="contactForm" *ngIf="!isSuccessful" (ngSubmit)="onSubmit()"  novalidate  class="text-center border border-light p-5 w-50 shadow-lg p-3 mb-5 bg-white">
+
+    <p class="h4 mb-4">Créer un nouveau profil de sortie</p>
+
+    <!-- libelle -->
+    <input type="text" name="libelle" formControlName="libelle" required class="form-control mb-4" placeholder="Libelle">
+
+
+    <div class="d-flex justify-content-around">
+    <!-- Sign in button -->
+    <button mdbBtn color="info" block="true" class="my-4 btn btn-success" type="submit">Enregistrer</button>
+    </div>
+  </form>
+ </div>

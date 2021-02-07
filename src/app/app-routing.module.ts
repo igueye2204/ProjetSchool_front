@@ -20,6 +20,8 @@ import { PostUsersComponent } from './users/post-users/post-users.component';
 import { EditProfilComponent } from './profil/edit-profil/edit-profil.component';
 import { EditUsersComponent } from './users/edit-users/edit-users.component';
 import { PostGrpcompetenceComponent } from './parametres/groupe-competences/post-grpcompetence/post-grpcompetence.component';
+import { PostProfilSortieComponent } from './parametres/profil-sortie/post-profil-sortie/post-profil-sortie.component';
+import { EditProfilSortieComponent } from './parametres/profil-sortie/edit-profil-sortie/edit-profil-sortie.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -65,7 +67,14 @@ const routes: Routes = [
         { path: 'referentiels', component: ReferentielsComponent },
         { path: 'competences', component: CompetencesComponent },
         { path: 'groupetags', component: GroupeTagsComponent },
-        { path: 'profilsortie', component: ProfilSortieComponent }
+        {
+          path: 'profilsorties',
+          children:[
+            { path: '', component: ProfilSortieComponent },
+            { path: 'editprofilsortie/:id', component: EditProfilSortieComponent },
+            { path: 'addprofilsortie', component: PostProfilSortieComponent }
+          ]
+        }
       ]
   },
 

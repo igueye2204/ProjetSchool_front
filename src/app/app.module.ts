@@ -40,6 +40,8 @@ import { PostGrpcompetenceComponent } from './parametres/groupe-competences/post
 import { EditGrpcompetenceComponent } from './parametres/groupe-competences/edit-grpcompetence/edit-grpcompetence.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { PostProfilSortieComponent } from './parametres/profil-sortie/post-profil-sortie/post-profil-sortie.component';
+import { EditProfilSortieComponent } from './parametres/profil-sortie/edit-profil-sortie/edit-profil-sortie.component';
 
 
 @NgModule({
@@ -79,7 +81,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
         EditUsersComponent,
         SummarizePipe,
         PostGrpcompetenceComponent,
-        EditGrpcompetenceComponent
+        EditGrpcompetenceComponent,
+        PostProfilSortieComponent,
+        EditProfilSortieComponent
 
     ],
     providers: [

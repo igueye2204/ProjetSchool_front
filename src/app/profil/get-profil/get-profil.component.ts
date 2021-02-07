@@ -12,7 +12,7 @@ export class GetProfilComponent implements OnInit {
   POSTS: any;
   page = 1;
   count = 0;
-  tableSize = 7;
+  tableSize = 3;
   tableSizes = [3, 6, 9, 12];
 
   constructor(private profil:ProfilService) { }
