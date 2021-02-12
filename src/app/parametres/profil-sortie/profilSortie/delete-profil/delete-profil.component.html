@@ -1,0 +1,60 @@
+<!-- Content -->
+<div class=" shadow p-3 mb-5 bg-white" style="border-radius: 0px 40px 0px 40px;">
+
+  <!-- <div class="row float-left" routerLinkActive="active">
+    <button class="btn btn-primary btn-circle btn-lg"><span class="fas fa-user-plus">Tota</span></button>
+  </div> -->
+  <h2 class="text-center">Liste des profils de sortie archivés</h2>
+  <hr>
+  <br>
+  <div class="d-flex flex-row-reverse bd-highlight mb-2 w-25 float-right">
+    <div class="p-2 bd-highlight">
+      <select (change)="onTableSizeChange($event)" class="custom-select">
+        <option *ngFor="let size of tableSizes" [ngValue]="size">
+          {{ size }}
+        </option>
+      </select>
+    </div>
+  </div>
+  <input class="form-control mr-sm-2 w-25" type="search" [(ngModel)]="searchText" placeholder="Chercher">
+
+<table class="table table-responsive-lg table-hover">
+  <thead>
+    <tr>
+      <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">ID</font></font></th>
+      <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Libelle</font></font></th>
+        <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Edit</font></font></th>
+        <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Désarchiver</font></font></th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr class="table-light"
+      *ngFor="let post of POSTS | filter: searchText | paginate : {
+        itemsPerPage: tableSize,
+        currentPage: page,
+        totalItems: count
+      };
+        let i = index"
+        >
+        <!-- [class.active]="i == currentIndex" -->
+        <th scope="row" ><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{post.id}}</font></font></th>
+        <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{post.libelle}}</font></font></td>
+      <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+        <a href="parametres/profilsorties/editprofilsortie/{{post.id}}"><span style="font-size: 20px; color: Dodgerblue;"><i class="far fa-edit"></i></span></a>
+      </font></font></td>
+       <td><button (click)="desarchiveProfil(post.id)" class="btn btn-warning btn-circle center"><i class="fas fa-eraser"></i></button></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div class="d-flex justify-content-center">
+  <pagination-controls
+    responsive="true"
+    previousLabel="Prev"
+    nextLabel="Next"
+    (pageChange)="onTableDataChange($event)">
+  </pagination-controls>
+</div>
+</div>

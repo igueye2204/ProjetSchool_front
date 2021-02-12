@@ -9,8 +9,8 @@
 
   <form name="form" #f="ngForm" *ngIf="!isSuccessful" (ngSubmit)="onSubmit(f)"  novalidate class="text-center border border-light w-75 h-75 shadow-lg p-3 mb-5 bg-white ">
 
-   <p class="h4 mb-4">Sign up</p>
-
+   <p class="h4 mb-4">Modification utilisateur</p>
+    <hr>
 
    <div class="col">
    <!-- <div class="form-row mb-4">
@@ -23,9 +23,10 @@
        </select>
      </div> -->
      <div>
-      <img  id="profile-img" [(ngModel)]="user.avatar" class="profile-img-card" />
+      <img *ngIf="user.avatar" [src]="imgSrc" class="rounded-circle border" style="width: 152px;
+      height: 152px;" >
      </div>
-     <hr>
+     <br>
 
      <div class="form-row mb-4">
        <div class="col">
@@ -47,13 +48,17 @@
    <input type="email" class="form-control mb-4" name="email" [(ngModel)]="user.email" placeholder="E-mail"  />
 
         <!-- Newsletter -->
-     <input type="file" multiple class="form-control" (change)="onFileSelect($event)" name="avatar" >
+     <input type="file" accept="image/*"  multiple class="form-control" (change)="onFileSelect($event)" name="avatar" >
      </div>
 
 
    <!-- Sign up button -->
-   <button class="btn btn-primary" type="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Submit</font></font></button>
+   <br>
+   <button class="btn btn-primary" type="submit"><span class="fa fa-send"></span> Envoyer</button>
  <br>
  </form>
  </div>
+
+<!-- <a href="" ><i class="fas fa-undo btn-lg"></i></a> -->
+
  <!-- Default form register -->

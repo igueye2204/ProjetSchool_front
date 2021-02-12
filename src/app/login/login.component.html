@@ -27,7 +27,7 @@
                           gradientUnits="userSpaceOnUse">
             <stop
                   style="stop-color:#ffffff;"
-                  offset="0"  
+                  offset="0"
                   id="stop876" />
             <stop
                   style="stop-color:#363636;"
@@ -38,21 +38,34 @@
         <path d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143" />
       </svg>
       <form class="form"  name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate >
-        
+
         <div class="form-group">
           <label for="username">Username</label>
           <input type="text" id="email" name="username"  [(ngModel)]="form.username" #username="ngModel" Placeholder="Username" required >
+          <div class="alert alert-danger" role="alert" *ngIf="f.submitted && username.invalid" >
+            <div *ngIf="username.errors.required">Username is required</div>
+          </div>
         </div>
-        
+
         <div class="form-group">
           <label for="password">Password</label>
           <input type="password" id="password" class="form-control" name="password" [(ngModel)]="form.password"  minlength="6" #password="ngModel" required >
+            <div  class="alert alert-danger" role="alert" *ngIf="f.submitted && password.invalid">
+              <div *ngIf="password.errors.required">Password is required</div>
+              <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+          </div>
         </div>
-        
+
         <div class="form-group">
              <input type="submit" id="submit" value="Login" >
         </div>
-       
+
+        <div class="form-group">
+          <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
+            Login failed: {{ errorMessage }}
+          </div>
+        </div>
+
       </form>
     </div>
   </div>

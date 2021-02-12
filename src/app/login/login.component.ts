@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
-      // this.roles = this.tokenStorage.getUser().roles;
+      this.roles = this.tokenStorage.getUser().roles;
     }
 
     var current: { pause: () => void; } = null;
@@ -85,20 +85,22 @@ document.querySelector('#submit').addEventListener('focus', function(e) {
 
 
         this.tokenStorage.saveToken(data.token);
-
         this.tokenStorage.saveUser(data);
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        // this.roles = this.tokenStorage.getUser().roles;
-        this.router.navigate(['home']);
+        this.roles = this.tokenStorage.getUser().roles;
+        const link = ['admin/users/listuser'];
+        this.router.navigate(link);
+        setTimeout(() => {
+          window.location.reload();
+        }, 1);
 
-       // window.location.reload();
-      }/* ,
+      },
       err => {
         this.errorMessage = err.error.message;
         this.isLoginFailed = true;
-      } */
+      }
     );
   }
 

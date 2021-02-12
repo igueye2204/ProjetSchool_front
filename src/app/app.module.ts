@@ -12,7 +12,7 @@ import { Routes, RouterModule } from '@angular/router';
 import  {JwtService} from './service/jwt.service';
 import { AppRoutingModule } from '../app/app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './login/home/home.component';
+import { HomeComponent } from './home/home.component';
 import { LoginComponent } from '../app/login/login.component';
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { BoardUserComponent } from './board-user/board-user.component';
@@ -25,7 +25,6 @@ import { ParametresComponent } from './parametres/parametres.component';
 import { PromoComponent } from './parametres/promo/promo.component';
 import { ReferentielsComponent } from './parametres/referentiels/referentiels.component';
 import { GroupeCompetencesComponent } from './parametres/groupe-competences/groupe-competences.component';
-import { GroupeTagsComponent } from './parametres/groupe-tags/groupe-tags.component';
 import { ProfilSortieComponent } from './parametres/profil-sortie/profil-sortie.component';
 import { CompetencesComponent } from './parametres/competences/competences.component';
 import { UsersComponent } from './users/users.component';
@@ -42,6 +41,12 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { PostProfilSortieComponent } from './parametres/profil-sortie/post-profil-sortie/post-profil-sortie.component';
 import { EditProfilSortieComponent } from './parametres/profil-sortie/edit-profil-sortie/edit-profil-sortie.component';
+import { UserDetailComponent } from './users/user-detail/user-detail.component';
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { DeletedUsersComponent } from './users/deleted-users/deleted-users.component';
+import { DeletedProfilComponent } from './profil/deleted-profil/deleted-profil.component';
+import { DeleteProfilComponent } from './parametres/profil-sortie/profilSortie/delete-profil/delete-profil.component';
 
 
 @NgModule({
@@ -55,7 +60,9 @@ import { EditProfilSortieComponent } from './parametres/profil-sortie/edit-profi
         NgbModule,
         NgxPaginationModule,
         NgMultiSelectDropDownModule.forRoot(),
-        NgSelectModule
+        NgSelectModule,
+        NgxQRCodeModule,
+        Ng2SearchPipeModule
     ],
     declarations: [
         AppComponent,
@@ -71,7 +78,6 @@ import { EditProfilSortieComponent } from './parametres/profil-sortie/edit-profi
         PromoComponent,
         ReferentielsComponent,
         GroupeCompetencesComponent,
-        GroupeTagsComponent,
         ProfilSortieComponent,
         CompetencesComponent,
         UsersComponent,
@@ -83,7 +89,11 @@ import { EditProfilSortieComponent } from './parametres/profil-sortie/edit-profi
         PostGrpcompetenceComponent,
         EditGrpcompetenceComponent,
         PostProfilSortieComponent,
-        EditProfilSortieComponent
+        EditProfilSortieComponent,
+        UserDetailComponent,
+        DeletedUsersComponent,
+        DeletedProfilComponent,
+        DeleteProfilComponent,
 
     ],
     providers: [

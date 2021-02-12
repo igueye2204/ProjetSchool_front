@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Profil } from '../models/profil';
 
@@ -30,4 +30,20 @@ export class ProfilService {
     return this.http.put(API_URL + '/' + id, profil);
   }
 
+  //delete profil
+
+  deleteProfilById(id: number): Observable<any> {
+    return this.http.delete(API_URL + '/' + id, {headers: new HttpHeaders, responseType: 'blob'});
+  }
+
+  // profil deleted
+  getProfilDeleted(): Observable<any> {
+    return this.http.get('http://127.0.0.1:8000/api/admin/profilsdeleted', { responseType: 'json' });
+ }
+
+ // desarchive profil
+
+ desarchiveProfil(id: number): Observable<any> {
+  return this.http.delete(API_URL + '/desarchive/' + id, {headers: new HttpHeaders, responseType: 'blob'})
+}
 }

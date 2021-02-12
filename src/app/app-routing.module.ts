@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './login/home/home.component';
+import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { GetProfilComponent } from './profil/get-profil/get-profil.component';
 import { PostProfilComponent } from './profil/post-profil/post-profil.component';
@@ -10,7 +10,6 @@ import { ParametresComponent } from './parametres/parametres.component';
 import { PromoComponent } from './parametres/promo/promo.component';
 import { ReferentielsComponent } from './parametres/referentiels/referentiels.component';
 import { ProfilSortieComponent } from './parametres/profil-sortie/profil-sortie.component';
-import { GroupeTagsComponent } from './parametres/groupe-tags/groupe-tags.component';
 import { GroupeCompetencesComponent } from './parametres/groupe-competences/groupe-competences.component';
 import { CompetencesComponent } from './parametres/competences/competences.component';
 import { UsersComponent } from './users/users.component';
@@ -22,6 +21,10 @@ import { EditUsersComponent } from './users/edit-users/edit-users.component';
 import { PostGrpcompetenceComponent } from './parametres/groupe-competences/post-grpcompetence/post-grpcompetence.component';
 import { PostProfilSortieComponent } from './parametres/profil-sortie/post-profil-sortie/post-profil-sortie.component';
 import { EditProfilSortieComponent } from './parametres/profil-sortie/edit-profil-sortie/edit-profil-sortie.component';
+import { UserDetailComponent } from './users/user-detail/user-detail.component';
+import { DeletedUsersComponent } from './users/deleted-users/deleted-users.component';
+import { DeletedProfilComponent } from './profil/deleted-profil/deleted-profil.component';
+import { DeleteProfilComponent } from './parametres/profil-sortie/profilSortie/delete-profil/delete-profil.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -36,7 +39,9 @@ const routes: Routes = [
             children: [
               { path: '', component: UsersComponent },
               { path: 'edituser/:id', component: EditUsersComponent },
+              { path: 'detailuser/:id', component: UserDetailComponent },
               { path: 'listuser', component: GetUsersComponent },
+              { path: 'listuserdeleted', component: DeletedUsersComponent },
               { path: 'adduser', component: PostUsersComponent }
             ]
         },
@@ -46,6 +51,7 @@ const routes: Routes = [
               { path: '', component: ProfilComponent },
               { path: 'editprofil/:id', component: EditProfilComponent },
               { path: 'listprofil', component: GetProfilComponent },
+              { path: 'listprofildeleted', component: DeletedProfilComponent },
               { path: 'addprofil', component: PostProfilComponent }
             ]
         }
@@ -66,12 +72,12 @@ const routes: Routes = [
         { path: 'promos', component: PromoComponent },
         { path: 'referentiels', component: ReferentielsComponent },
         { path: 'competences', component: CompetencesComponent },
-        { path: 'groupetags', component: GroupeTagsComponent },
         {
           path: 'profilsorties',
           children:[
             { path: '', component: ProfilSortieComponent },
             { path: 'editprofilsortie/:id', component: EditProfilSortieComponent },
+            { path: 'listprofilsortiedeleted', component: DeleteProfilComponent },
             { path: 'addprofilsortie', component: PostProfilSortieComponent }
           ]
         }

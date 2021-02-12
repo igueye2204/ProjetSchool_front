@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/service/user.service';
 
 
@@ -12,34 +14,43 @@ import { UserService } from 'src/app/service/user.service';
 export class GetUsersComponent implements OnInit {
 
 
+  searchText: string;
   POSTS: any;
   page = 1;
   count = 0;
   tableSize = 5;
   tableSizes = [5, 10, 15];
+  searchResult: User[];
+  f:NgForm;
   constructor(private user:UserService) {
   }
 
 
   ngOnInit(): void {
+    this.searchResult = [];
     this.fetchPosts();
   }
 
   fetchPosts(): void{
     this.user.getAllUser().subscribe(
       data =>{
-        this.POSTS = data ;
-
-        console.log(this.POSTS);
-
-        // this.content = this.content['hydra:member'];
-      },
-      error =>{
-        alert('probléme d\'accés');
-        console.log(error);
-      }
+            this.POSTS = data;
+        },
+        error =>{
+      alert('probléme d\'accés');
+      console.log(error);
+    }
     )
   }
+
+  selectUser(user:User){
+    console.log(user);
+  }
+
+  search(chaine: any){
+    console.log(chaine)
+  }
+
 
   onTableDataChange(event: number){
     this.page = event;
@@ -50,6 +61,14 @@ export class GetUsersComponent implements OnInit {
     this.tableSize = event.target.value;
     this.page = 1;
     this.fetchPosts();
+  }
+
+  deleteUser(id:number){
+    this.user.deleteUserById(id).subscribe(
+        res=>{
+          window.location.reload();
+        }
+    )
   }
 
 }

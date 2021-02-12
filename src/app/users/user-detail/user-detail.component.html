@@ -1,0 +1,56 @@
+<div class=" shadow p-3 mb-5 bg-white " style="border-radius: 0px 40px 0px 40px;">
+
+  <div class="justify-content-center">
+    <div class=" flex justify-content-center text-center">
+      <div>
+        <h1 class="display-4 float-left">ID: {{user.id}}</h1>
+        <h1 class="display-4">{{user.profil.libelle}}</h1>
+        <hr>
+        <div class="float-right border-silver">
+          <ngx-qrcode
+          [elementType]="elementType"
+          [errorCorrectionLevel]="correctionLevel"
+          [value]= "value"
+          cssClass="bshadow">
+        </ngx-qrcode>
+      </div>
+      <div class="w-25 h-75">
+        <img [src]="imgSrc" class="rounded-circle border float-left mb-2 ml-4" alt="Cinque Terre">
+        <h2 class=" ml-6 mt-4">{{user.prenom}} {{user.nom}}</h2>
+        <div class="row justify-content-around mt-2 mb-3 float-left">
+          <div class="col-4 ">
+            <a href="admin/users/edituser/{{user.id}}"><button type="button" class="btn btn-outline-warning"><i class="fas fa-user-edit">Editer</i></button></a>
+          </div>
+          <div class="col-4">
+            <button type="button" (click)="deleteUser()" class="btn btn-outline-danger"><i class="fas fa-trash">Supprimer</i></button>
+          </div>
+        </div>
+        <br>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class=" mb-0">
+      <table class="table table-responsive-lg table-hover">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>@{{user.username}}</td>
+            <td>{{user.email}}</td>
+            <td>HLM</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+
+  </div>
+
+  </div>

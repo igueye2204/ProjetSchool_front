@@ -1,3 +1,5 @@
+import { Profil } from "./profil";
+
 export class User{
   id:number;
   username: string;
@@ -5,6 +7,6 @@ export class User{
   nom: string;
   password: string;
   email: string;
-  profil: string;
+  profil: Profil;
   avatar: Blob;
 }

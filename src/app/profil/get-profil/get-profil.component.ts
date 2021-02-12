@@ -9,6 +9,7 @@ import { ProfilService } from 'src/app/service/profil.service';
 export class GetProfilComponent implements OnInit {
 
 
+  searchText:string;
   POSTS: any;
   page = 1;
   count = 0;
@@ -48,5 +49,12 @@ export class GetProfilComponent implements OnInit {
     this.tableSize = event.target.value;
     this.page = 1;
     this.affiche();
+  }
+  deleteProfilById(id:number){
+    this.profil.deleteProfilById(id).subscribe(
+        res=>{
+          window.location.reload();
+        }
+    )
   }
 }

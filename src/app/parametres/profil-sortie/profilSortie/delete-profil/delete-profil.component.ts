@@ -1,18 +1,14 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ProfilSortie } from 'src/app/models/ProfilSortie';
 import { ProfilSortieService } from 'src/app/service/profil-sortie.service';
 
 @Component({
-  selector: 'app-profil-sortie',
-  templateUrl: './profil-sortie.component.html',
-  styleUrls: ['./profil-sortie.component.scss']
+  selector: 'app-delete-profil',
+  templateUrl: './delete-profil.component.html',
+  styleUrls: ['./delete-profil.component.scss']
 })
-export class ProfilSortieComponent implements OnInit {
-
-
-
+export class DeleteProfilComponent implements OnInit {
 
   searchText: string;
   POSTS: any;
@@ -26,15 +22,17 @@ export class ProfilSortieComponent implements OnInit {
   status: string;
   userAr: void;
 
-  constructor(private profilSortie: ProfilSortieService) { }
+  constructor(private profilSortie:ProfilSortieService) {
+  }
+
 
   ngOnInit(): void {
-    this.searchResult = [];
     this.fetchPosts();
+    this.searchResult = [];
   }
 
   fetchPosts(): void{
-    this.profilSortie.getAllProfilSortie().subscribe(
+    this.profilSortie.getAllProfilSortieArchive().subscribe(
       data =>{
             this.POSTS = data;
             console.log(data);
@@ -46,9 +44,9 @@ export class ProfilSortieComponent implements OnInit {
     )
   }
 
-  deleteProfilById(id:number){
+  desarchiveProfil(id:number){
     console.log(id);
-      this.profilSortie.deleteProfilSortieById(id).subscribe(
+      this.profilSortie.desarchiveProfilSortie(id).subscribe(
         res=>{
           window.location.reload();
         }

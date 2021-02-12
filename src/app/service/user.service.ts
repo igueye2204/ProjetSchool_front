@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user';
+import { tap } from 'rxjs/operators';
 
 const API_URL = 'http://127.0.0.1:8000/api/admin/users';
 
@@ -17,20 +18,23 @@ export class UserService {
   }
 
   getUserById(id: number): Observable<any> {
-    return this.http.get(API_URL + '/' + id);
+    return this.http.get(API_URL + '/' + id, { responseType: 'json'});
   }
-
    //update profil
 
    updateUserById(id: number, user: User, formdata: any): Observable<any> {
     return this.http.put(API_URL + '/' + id, user, formdata);
   }
 
-  // getModeratorBoard(): Observable<any> {
-  //   return this.http.get(API_URL + 'mod', { responseType: 'text' });
-  // }
+  deleteUserById(id: number): Observable<any> {
+    return this.http.delete(API_URL + '/' + id, {headers: new HttpHeaders, responseType: 'blob'});
+  }
 
-  // getAdminBoard(): Observable<any> {
-  //   return this.http.get(API_URL + 'admin', { responseType: 'text' });
-  // }
+  getUserDeleted(): Observable<any> {
+     return this.http.get('http://127.0.0.1:8000/api/admin/usersdeleted', { responseType: 'json' });
+  }
+
+   desarchiveUser(id: number): Observable<any> {
+     return this.http.delete(API_URL + '/desarchive/' + id, {headers: new HttpHeaders, responseType: 'blob'})
+   }
 }

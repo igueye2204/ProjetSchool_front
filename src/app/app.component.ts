@@ -10,8 +10,6 @@ export class AppComponent implements OnInit {
 
   private roles: string[] | undefined;
   isLoggedIn = false;
-  showAdminBoard = false;
-  showModeratorBoard = false;
   username: string | undefined;
 
   constructor(private tokenStorageService: TokenStorageService) { }

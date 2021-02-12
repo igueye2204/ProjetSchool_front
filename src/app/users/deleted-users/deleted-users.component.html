@@ -1,13 +1,10 @@
 <!-- Content -->
 <div class=" shadow p-3 mb-5 bg-white" style="border-radius: 0px 40px 0px 40px;">
 
-  <div class="float-left" routerLinkActive="active">
-    <a href="admin/users/adduser" style="margin-left: 10px;"><button class="btn btn-primary btn-circle btn-lg"><span class="fas fa-user-plus"></span></button></a>
-  </div>
-  <div class=" float-right" routerLinkActive="active">
-    <a href="admin/users/listuserdeleted" style="margin-right: 10px;"><button class="btn btn-danger btn-circle btn-lg" style="color: aliceblue;"><i class="fas fa-user-times"  >  Les Utilisateurs archivés</i></button></a>
-  </div>
-  <h2 class="text-center">Liste des utilisateurs</h2>
+  <!-- <div class="row float-left" routerLinkActive="active">
+    <button class="btn btn-primary btn-circle btn-lg"><span class="fas fa-user-plus">Tota</span></button>
+  </div> -->
+  <h2 class="text-center">Liste des utilisateurs archivés</h2>
   <hr>
   <br>
   <div class="d-flex flex-row-reverse bd-highlight mb-2 w-25 float-right">
@@ -32,7 +29,7 @@
         <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Profil</font></font></th>
         <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Edit</font></font></th>
         <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Détails</font></font></th>
-        <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Supprimer</font></font></th>
+        <th scope="col"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Désarchiver</font></font></th>
       </tr>
     </thead>
     <tbody>
@@ -56,11 +53,10 @@
         <a href="admin/users/edituser/{{post.id}}"><span style="font-size: 20px; color: Dodgerblue;"><i class="far fa-edit"></i></span></a>
       </font></font></td>
       <td><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-        <a href="admin/users/detailuser/{{post.id}}" class="align-item-center"><span style="font-size: 20px; color:yellowgreen"><i class="far fa-user"></i></span></a>
+        <a href="admin/users/detailuser/{{post.id}}" class="align-item-center"><span style="font-size: 20px;color:yellowgreen"><i class="far fa-user"></i></span></a>
       </font></font></td>
-    <td><button (click)="deleteUser(post.id)" class="btn btn btn-circle center"><span class="fas fa-trash" style="color: red;font-size: 20px;"></span></button></td>
+       <td><button (click)="deleteUser(post.id)" class="btn btn-warning btn-circle center"><i class="fas fa-eraser"></i></button></td>
     </tr>
-
   </tbody>
 </table>
 
@@ -74,6 +70,5 @@
   </pagination-controls>
 </div>
 </div>
-
 
 
