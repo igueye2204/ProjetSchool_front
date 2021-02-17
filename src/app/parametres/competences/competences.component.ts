@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { CompetenceService } from 'src/app/service/competence.service';
 
 @Component({
@@ -16,13 +17,16 @@ export class CompetencesComponent implements OnInit {
   criteres2: any; actions2: any;
   criteres3: any; actions3: any;
 
+  competenceForm: FormGroup;
   selectedOption: any;
   competenceChoised: any;
   idSelected: number | undefined;
   libelle: any;
-  constructor(private competenceService: CompetenceService) { }
+  competence: any;
+  constructor(private competenceService: CompetenceService, private formBuilder:FormBuilder) { }
 
   ngOnInit(): void {
+    this.selectedOption = 'selectDefault';
    this.getAllcompetence();
   }
 
@@ -30,13 +34,12 @@ export class CompetencesComponent implements OnInit {
     this.competenceService.getAllCompetence().subscribe(data => {
         this.competences = data ;
          data.forEach((element: any) => {
-              console.log(element.GroupeCompetence);
-              (element.GroupeCompetence).forEach((element2:any) => {
-                  console.log(element2.libelle);
-                    this.GrpLibelle = element2.libelle;
+              (element.GroupeCompetence).forEach((element1:any) => {
+                this.GrpLibelle = element1['libelle'];
+                console.log(this.GrpLibelle);
+
               });
         });
-        console.log(this.competences.GroupeCompetence);
     });
   }
 
