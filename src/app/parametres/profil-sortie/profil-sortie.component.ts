@@ -48,6 +48,7 @@ export class ProfilSortieComponent implements OnInit {
 
   deleteProfilById(id:number){
     console.log(id);
+    if(confirm('Voulez vous vraiment supprimer ce profil'))
       this.profilSortie.deleteProfilSortieById(id).subscribe(
         res=>{
           window.location.reload();

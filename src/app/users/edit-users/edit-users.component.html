@@ -1,5 +1,5 @@
 <!-- Default form register -->
-<div class=" row p-3 justify-content-center costum-line">
+<!-- <div class=" row p-3 justify-content-center costum-line">
   <ng-container *ngIf="isSuccessful" class="border border-light p-5 w-50 shadow-lg p-3 bg-white">
     <p class="text-center alert alert-success p-2 rounded">
       Successfully Update!
@@ -12,7 +12,7 @@
    <p class="h4 mb-4">Modification utilisateur</p>
     <hr>
 
-   <div class="col">
+   <div class="col"> -->
    <!-- <div class="form-row mb-4">
        <select name="profil" class="form-control" name="profil" [(ngModel)]="user.profil"  value="Choix de profil">
          <option value="">Choix de profil</option>
@@ -22,43 +22,108 @@
        <option value="Admin">Admin</option>
        </select>
      </div> -->
-     <div>
+     <!-- <div>
       <img *ngIf="user.avatar" [src]="imgSrc" class="rounded-circle border" style="width: 152px;
       height: 152px;" >
      </div>
      <br>
 
      <div class="form-row mb-4">
-       <div class="col">
+       <div class="col"> -->
          <!-- First name -->
-         <input type="text" class="form-control" name="prenom" [(ngModel)]="user.prenom" placeholder="Prenom"  />
+         <!-- <input type="text" class="form-control" name="prenom" [(ngModel)]="user.prenom" placeholder="Prenom"  />
        </div>
-       <div class="col">
+       <div class="col"> -->
          <!-- Last name -->
-         <input type="text" class="form-control" name="nom" [(ngModel)]="user.nom" placeholder="Nom"  />
+         <!-- <input type="text" class="form-control" name="nom" [(ngModel)]="user.nom" placeholder="Nom"  />
        </div>
-     </div>
+     </div> -->
 
 
      <!-- Username -->
-     <input type="text" class="form-control" name="username" [(ngModel)]="user.username" minlength="3" maxlength="20"   id="defaultRegisterFormUsername" class="form-control mb-4" placeholder="Username">
+     <!-- <input type="text" class="form-control" name="username" [(ngModel)]="user.username" minlength="3" maxlength="20"   id="defaultRegisterFormUsername" class="form-control mb-4" placeholder="Username"> -->
 
 
             <!-- E-mail -->
-   <input type="email" class="form-control mb-4" name="email" [(ngModel)]="user.email" placeholder="E-mail"  />
+   <!-- <input type="email" class="form-control mb-4" name="email" [(ngModel)]="user.email" placeholder="E-mail"  /> -->
 
         <!-- Newsletter -->
-     <input type="file" accept="image/*"  multiple class="form-control" (change)="onFileSelect($event)" name="avatar" >
-     </div>
+     <!-- <input type="file" accept="image/*"  multiple class="form-control" (change)="onFileSelect($event)" name="avatar" >
+     </div> -->
 
 
    <!-- Sign up button -->
-   <br>
+   <!-- <br>
    <button class="btn btn-primary" type="submit"><span class="fa fa-send"></span> Envoyer</button>
  <br>
  </form>
- </div>
+ </div> -->
 
 <!-- <a href="" ><i class="fas fa-undo btn-lg"></i></a> -->
 
+ <!-- Default form register -->
+
+
+ <!-- Default form register -->
+<div class=" row p-3 justify-content-center costum-line">
+
+    <form name="form" [formGroup] ="contactForm" (ngSubmit)="onSubmit()"  novalidate class="text-center border border-light w-75 h-75 shadow-lg p-3 mb-5 bg-white ">
+
+      <p class="h4 mb-4">Modification utilisateur</p>
+      <hr>
+
+    <div class="col">
+      <div>
+        <img *ngIf="user.avatar" [src]="imgSrc" (click)="fileUploader.click()" class="rounded-circle border" style="width: 152px;
+        height: 152px;" >
+      </div>
+      <hr>
+
+      <div class="form-row mb-4">
+          <div class="col">
+            <!-- First name -->
+            <input type="text" class="form-control" name="prenom" formControlName="prenom" placeholder="Prenom"  />
+                <small class="text-danger" *ngIf="(f.prenom.touched || submitted) && f.prenom.errors?.required"> Prenom est requis</small>
+          </div>
+
+          <div class="col">
+            <!-- Last name -->
+            <input type="text" class="form-control" name="nom" formControlName="nom" placeholder="Nom" />
+              <small class="text-danger" *ngIf="(f.nom.touched || submitted) && f.nom.errors?.required"> Nom est requis</small>
+          </div>
+      </div>
+
+
+        <!-- Username -->
+        <input type="text" class="form-control" name="username"  formControlName="username" minlength="3" maxlength="20"   id="defaultRegisterFormUsername" class="form-control mb-4" placeholder="Username">
+          <small class="text-danger" *ngIf="(f.nom.touched || submitted) && f.nom.errors?.required"> Username est requis</small>
+          <!-- <small class="text-danger" *ngIf="(submitted) && f.nom.errors?.userNameNotAvailable"> Username est plus disponible</small> -->
+
+
+              <!-- E-mail -->
+        <input type="email" class="form-control mb-4" name="email" formControlName="email" placeholder="E-mail"  />
+            <small class="text-danger" *ngIf="(f.email.touched || submitted) && f.email.errors?.required"> Email est requis</small>
+            <small class="text-danger" *ngIf="(f.email.touched || submitted) && f.email.errors?.email"> Mettre un mail valide</small>
+
+          <!-- Newsletter -->
+      <input type="file" accept="image/*" #fileUploader multiple class="form-control" (change)="onFileSelect($event)" name="avatar" formControlName="avatar" >
+      
+      </div>
+      <br>
+
+
+    <!-- Sign up button -->
+    <button class="btn btn-primary"  type="submit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Submit</font></font></button>
+
+    <br>
+    <br>
+    <ng-container *ngIf="isSuccessful" class="border border-light shadow-lg bg-white">
+      <p class="text-center alert alert-success">
+        Successfully Update!
+      </p>
+
+    </ng-container>
+  </form>
+
+ </div>
  <!-- Default form register -->

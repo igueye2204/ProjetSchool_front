@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/service/user.service';
 
+
 @Component({
   selector: 'app-deleted-users',
   templateUrl: './deleted-users.component.html',
@@ -26,7 +27,10 @@ export class DeletedUsersComponent implements OnInit {
   }
 
 
+
+
   ngOnInit(): void {
+
     this.searchResult = [];
     this.fetchPosts();
   }
@@ -44,13 +48,17 @@ export class DeletedUsersComponent implements OnInit {
     )
   }
 
+
   deleteUser(id:number){
-    console.log(id);
-      this.user.desarchiveUser(id).subscribe(
-        res=>{
-          window.location.reload();
-        }
-        )
+
+    if(confirm('Voulez vous vraiment desarchiver cet utilisateur'))
+    this.user.desarchiveUser(id).subscribe(
+      res=>{
+        window.location.reload();
+        console.log(id);
+      }
+      )
+
 
   }
 

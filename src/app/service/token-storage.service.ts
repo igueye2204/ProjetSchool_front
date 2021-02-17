@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { JwtService } from './jwt.service';
 
+
 const TOKEN_KEY = 'auth-token';
 const USER_KEY = 'auth-user';
 
@@ -29,10 +30,14 @@ export class TokenStorageService {
 
   public saveUser(user: string ): void {
     window.localStorage.removeItem(USER_KEY);
-    window.localStorage.setItem(USER_KEY, JSON.stringify(user));
+     window.localStorage.setItem(USER_KEY, JSON.stringify(user));
   }
 
   public getUser(): any {
     return JSON.parse(localStorage.getItem(USER_KEY));
+  }
+
+  public getInfoUser(){
+    return this.jwtService.DecodeToken(localStorage.getItem(TOKEN_KEY));
   }
 }

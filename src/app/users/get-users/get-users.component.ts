@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/service/user.service';
-
 
 
 @Component({
@@ -11,6 +11,7 @@ import { UserService } from 'src/app/service/user.service';
   templateUrl: './get-users.component.html',
   styleUrls: ['./get-users.component.scss']
 })
+
 export class GetUsersComponent implements OnInit {
 
 
@@ -22,16 +23,18 @@ export class GetUsersComponent implements OnInit {
   tableSizes = [5, 10, 15];
   searchResult: User[];
   f:NgForm;
-  constructor(private user:UserService) {
+  constructor(private user:UserService, private router: Router) {
   }
 
 
   ngOnInit(): void {
+
     this.searchResult = [];
     this.fetchPosts();
   }
 
   fetchPosts(): void{
+
     this.user.getAllUser().subscribe(
       data =>{
             this.POSTS = data;
@@ -64,6 +67,7 @@ export class GetUsersComponent implements OnInit {
   }
 
   deleteUser(id:number){
+    if(confirm('Voulez vous vraiment supprimer cet utilisateur'))
     this.user.deleteUserById(id).subscribe(
         res=>{
           window.location.reload();

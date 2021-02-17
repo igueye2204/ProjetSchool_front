@@ -47,6 +47,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { DeletedUsersComponent } from './users/deleted-users/deleted-users.component';
 import { DeletedProfilComponent } from './profil/deleted-profil/deleted-profil.component';
 import { DeleteProfilComponent } from './parametres/profil-sortie/profilSortie/delete-profil/delete-profil.component';
+import { EditProfileComponent } from './profile/edit-profile/edit-profile.component';
+import { PostCompetencesComponent } from './parametres/competences/post-competences/post-competences.component';
 
 
 @NgModule({
@@ -94,6 +96,8 @@ import { DeleteProfilComponent } from './parametres/profil-sortie/profilSortie/d
         DeletedUsersComponent,
         DeletedProfilComponent,
         DeleteProfilComponent,
+        EditProfileComponent,
+        PostCompetencesComponent,
 
     ],
     providers: [

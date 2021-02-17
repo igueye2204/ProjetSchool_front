@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ProfilService } from 'src/app/service/profil.service';
 
 import { environment } from 'src/environments/environment';
 
@@ -11,33 +12,21 @@ import { environment } from 'src/environments/environment';
 })
 export class PostProfilComponent implements OnInit {
 
-  contactForm: FormGroup;
+  form:any = {};
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
   url = environment.apiUrl;
-  constructor(private formBuilder: FormBuilder, private http: HttpClient) { }
+  constructor(private http: HttpClient, private profilService : ProfilService) { }
 
   ngOnInit(): void {
-    this.contactForm = this.formBuilder.group({
-      libelle: ['']
-    });
   }
 
-  get f(){
-    return  this.contactForm.controls;
- }
   onSubmit(): void {
 
-    const formdata = new FormData();
-    formdata.append('libelle', this.contactForm.get('libelle').value);
-    
-    console.log(formdata)
-    this.http.post<any>(this.url + 'admin/profils', formdata).subscribe(
+    this.profilService.postProfil(this.form).subscribe(
       data => {
         console.log(data)
-        this.isSuccessful = true;
-        this.isSignUpFailed = false;
       }/* ,
       err => {
         this.errorMessage = err.error.message;

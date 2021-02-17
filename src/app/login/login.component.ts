@@ -17,15 +17,19 @@ export class LoginComponent implements OnInit {
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
-  roles: string[] = [];
+  roles: string[]  = [];
 
 
   constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private router: Router, private jwtservice:JwtService) { }
 
   ngOnInit(): void {
+    console.log(this.tokenStorage.getToken())
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
-      this.roles = this.tokenStorage.getUser().roles;
+       // @ts-ignore
+      this.roles = this.tokenStorage.getInfoUser().roles[0];
+      console.log(this.roles);
+      console.log(this.tokenStorage.getUser())
     }
 
     var current: { pause: () => void; } = null;
@@ -86,10 +90,14 @@ document.querySelector('#submit').addEventListener('focus', function(e) {
 
         this.tokenStorage.saveToken(data.token);
         this.tokenStorage.saveUser(data);
+        console.log(this.tokenStorage.getInfoUser());
+
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        this.roles = this.tokenStorage.getUser().roles;
+         // @ts-ignore
+         
+        this.roles = this.tokenStorage.getInfoUser();
         const link = ['admin/users/listuser'];
         this.router.navigate(link);
         setTimeout(() => {

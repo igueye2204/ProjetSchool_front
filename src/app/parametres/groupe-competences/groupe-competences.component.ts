@@ -9,7 +9,7 @@ import { GrpCompetenceService } from 'src/app/service/grp-competence.service';
 export class GroupeCompetencesComponent implements OnInit {
 
   GET: any;
-
+  heading: string;
   constructor(private grpCompetence: GrpCompetenceService) {
   }
 

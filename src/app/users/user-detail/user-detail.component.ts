@@ -15,14 +15,14 @@ export class UserDetailComponent implements OnInit {
   id: number;
   user = new User;
   libelle: string;
-  imgSrc = "/assets/images/images.png";
+  imgSrc:string;
 
   constructor( private userService: UserService, private route: ActivatedRoute, private router: Router) { }
 
   elementType = NgxQrcodeElementTypes.URL;
   correctionLevel = NgxQrcodeErrorCorrectionLevels.HIGH;
-  value = 'https://www.techiediaries.com/';
-
+  value = 'Free';
+  
   ngOnInit(): void {
     this.route.paramMap.subscribe(
       params => this.id = parseInt(params.get('id'))
@@ -47,7 +47,7 @@ export class UserDetailComponent implements OnInit {
         response =>{
               const link = ['admin/users/listuser'];
               this.router.navigate(link);
-              
+
         }
       )
     }

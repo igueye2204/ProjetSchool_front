@@ -1,77 +1,88 @@
 <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3 mb-5 bg-white fixed-top" style="border-radius: initial; font-weight: 100; margin-bottom: 0px;
-    height: 60px;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3 mb-5 bg-white fixed-top" style="border-radius: initial; margin-bottom: 0px; height: 60px;">
     <img src="assets/images/téléchargement.png" alt="" class="img">
       <a href="#" class="navbar-brand">Sonatel Academy</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarColor03">
-      <ul class="navbar-nav mr-auto" routerLinkActive="active">
+      <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+        <ul class="navbar-nav" routerLinkActive="active">
 
-        <li class="nav-item">
-          <a  class="nav-link" *ngIf="isLoggedIn" routerLink="#"> <i class="fa fa-sticky-note" aria-hidden="true"></i> Briefs</a>
-        </li>
+          <li class="nav-item">
+            <a  class="nav-link" *ngIf="isLoggedIn" routerLink="#"> <i class="fa fa-sticky-note" aria-hidden="true"></i> Briefs</a>
+          </li>
 
-        <li class="nav-item">
-          <a  class="nav-link" *ngIf="isLoggedIn" routerLink="#"> <i class="fa fa-download" aria-hidden="true"></i> Rendus</a>
-        </li>
+          <li class="nav-item">
+            <a  class="nav-link" *ngIf="isLoggedIn" routerLink="#"> <i class="fa fa-download" aria-hidden="true"></i> Rendus</a>
+          </li>
 
-        <li class="nav-item">
-          <a  class="nav-link" *ngIf="isLoggedIn" routerLink="#"> <i class="fa fa-compass" aria-hidden="true"></i> Explorer</a>
-        </li>
+          <li class="nav-item">
+            <a  class="nav-link" *ngIf="isLoggedIn" routerLink="#"> <i class="fa fa-compass" aria-hidden="true"></i> Explorer</a>
+          </li>
 
-        <li class="nav-item">
-          <a  class="nav-link" *ngIf="isLoggedIn" routerLink="#"> <i class="fa fa-comments-o" aria-hidden="true"></i> Forum</a>
-        </li>
+          <li class="nav-item">
+            <a  class="nav-link" *ngIf="isLoggedIn" routerLink="#"> <i class="fa fa-comments-o" aria-hidden="true"></i> Forum</a>
+          </li>
 
-        <li class="nav-item dropdown" *ngIf="isLoggedIn" >
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog" aria-hidden="true"></i> Parametres</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#" routerLink="parametres/promos"> Promo </a>
-            <a class="dropdown-item" href="#" routerLink="parametres/referentiels" > Référentiels </a>
-            <a class="dropdown-item" href="#" routerLink="parametres/groupecompetences"> Groupe-Compétences</a>
-            <a class="dropdown-item" href="#" routerLink="parametres/competences" > Compétences </a>
-            <a class="dropdown-item" href="#" routerLink="parametres/profilsorties"> Profil de sortie</a>
-          </div>
-        </li>
+          <li class="nav-item dropdown" *ngIf="isLoggedIn" >
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-cog" aria-hidden="true"></i> Parametres</a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+              <li><a class="dropdown-item" href="#" routerLink="parametres/promos"> Promo</a></li>
+              <li><a class="dropdown-item" href="#" routerLink="parametres/referentiels" > Référentiels</a></li>
+              <li><a class="dropdown-item" href="#" routerLink="parametres/groupecompetences"> Groupe-Compétences</a></li>
+              <li><a class="dropdown-item" href="#" routerLink="parametres/competences"> Compétences</a></li>
+              <li><a class="dropdown-item" href="#" routerLink="parametres/profilsorties"> Profil de sortie</a></li>
+            </ul>
+          </li>
 
 
-        <li class="nav-item dropdown" *ngIf="isLoggedIn" >
-          <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-o" aria-hidden="true"></i> User</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#" routerLink="admin/users/listuser"> Utilisateurs</a>
-            <a class="dropdown-item" href="#" routerLink="admin/profil/listprofil">Profils </a>
-          </div>
-        </li>
+          <li class="nav-item dropdown" *ngIf="isLoggedIn" >
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-o" aria-hidden="true"></i> User</a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+              <li><a class="dropdown-item" href="#" routerLink="admin/users/listuser"> Utilisateurs</a></li>
+              <li><a class="dropdown-item" href="#" routerLink="admin/profil/listprofil"> Profils </a></li>
+            </ul>
+          </li>
 
-        <li class="nav-item">
-          <a  class="nav-link" *ngIf="isLoggedIn" routerLink="#"> <i class="fa fa-history" aria-hidden="true"></i> Historique des promos</a>
-        </li>
+          <li class="nav-item">
+            <a  class="nav-link" *ngIf="isLoggedIn" routerLink="#"> <i class="fa fa-history" aria-hidden="true"></i> Historique des promos</a>
+          </li>
 
-      </ul>
+        </ul>
 
-      <ul class="navbar-nav float-right" *ngIf="!isLoggedIn">
-        <li class="nav-item">
-          <a href="/login" class="nav-link " routerLink="login"> <i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
-        </li>
-      </ul>
+        <ul class="navbar-nav float-right" *ngIf="!isLoggedIn" style=" font-size:larger">
+          <li class="nav-item">
+            <a href="/login" class="nav-link " routerLink="login"> <i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+          </li>
+        </ul>
 
-      <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
-        <li class="nav-item">
-          <a href="/profile" class="nav-link" routerLink="profile"> {{ username }}</a>
-        </li>
-        <li class="nav-item">
-          <a href class="nav-link" (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> LogOut</a>
-        </li>
-      </ul>
+        <ul class="navbar-nav ml-auto font-light" *ngIf="isLoggedIn" style=" font-size:larger">
+          <li class="nav-item dropdown" *ngIf="isLoggedIn" >
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-o" aria-hidden="true"> {{ user.prenom }}</i></a>
+            <ul class="dropdown-menu dropdown-menu">
+              <li><a class="dropdown-item" href="/profile" class="nav-link" routerLink="profile"><i class="fa fa-cog" aria-hidden="true"></i> Paramètre</a></li>
+              <li><a href class="nav-link"  (click)="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i> LogOut</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <img style="height: 50px; width: 50px; border-radius: 50px" class="rounded-circle border" [src]="imgSrc" alt="">
+          </li>
+        </ul>
       </div>
-    </nav>
-<br>
-<br>
-<br>
-  <div class="container align-content-center justify-content-center">
-      <router-outlet></router-outlet>
+  </nav>
+
+        <br>
+        <br>
+        <br>
+
+  <div  class="mt-5 container align-content-center justify-content-center">
+    <router-outlet></router-outlet>
   </div>
 </div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>

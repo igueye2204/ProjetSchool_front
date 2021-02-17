@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import  jwt_decode from 'jwt-decode';
-import { JwtHelperService } from "@auth0/angular-jwt";
-import {map} from 'rxjs/operators';;
 
 @Injectable({
   providedIn: 'root'

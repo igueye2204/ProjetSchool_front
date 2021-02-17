@@ -21,4 +21,8 @@ export class CompetenceService {
   getCompetenceById(id: number): Observable<any> {
     return this.http.get(API_URL + '/' + id);
   }
+
+  postCompetence(): Observable<any> {
+      return this.http.post<any>(API_URL , { responseType: 'json'});
+  }
 }

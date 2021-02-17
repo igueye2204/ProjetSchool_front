@@ -12,6 +12,11 @@ export class ProfilService {
 
   constructor(private http: HttpClient) { }
 
+
+  postProfil(profil:Profil): Observable<any>{
+    return this.http.post<Profil>(API_URL, profil);
+  }
+
   //Get all profil
 
   getAllProfil(): Observable<any> {

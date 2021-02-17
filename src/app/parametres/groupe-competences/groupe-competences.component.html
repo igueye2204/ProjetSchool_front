@@ -1,9 +1,9 @@
 
-<hr>
-<a href="parametres/groupecompetences/addgrpcompetence" style="margin-left: 10px;"> <button type = "button" class = "btn btn-outline-secondary align-start"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Creer un Groupe de compétence </font> </font> </button></a>
-<hr>
-<h2 class="text-center">  Liste des Groupe de Competences</h2>
-<hr>
+  <hr>
+  <a href="parametres/groupecompetences/addgrpcompetence" class="float-left" style="margin-left: 10px;"> <button type = "button" class = "btn btn-outline-secondary align-start"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Creer un Groupe de compétence </font> </font> </button></a>
+  <h2 class="text-center">  Liste des Groupe de Competences</h2>
+  <hr>
+  <hr>
 <div class=" row">
     <div class="col-sm-4 mb-4" *ngFor="let get of GET" >
         <div class="card center" style="width: 20rem;">
@@ -19,69 +19,39 @@
             <p class="card-text"></p>
           </div>
           <div class="list-group">
-              <div class="accordion" id="Exempleaccordion">
-              <div class="card">
-                 <div class="card-header" id="premierTitre">
-                    <h5 class="mb-0">
-                       <button
-                          class="btn btn-link"
-                          type="button"
-                          data-toggle="collapse"
-                          data-target="#premierCollapse"
-                          aria-expanded="true"
-                          aria-controls="premierCollapse">
-                          Compétences
-                        </button>
-                      </h5>
-                    </div>
-                    <div id="premierCollapse"
-                    class="collapse show"
-                    aria-labelledby="premierTitre"
-                    data-parent="#Exempleaccordion">
-                    <div class="card-body" *ngFor="let competence of get.competences">
 
-                      {{competence.libelle}}
-
-                    </div>
-                 </div>
-              </div>
-              <div class="card">
-                 <div class="card-header" id="deuxiemeTitre">
-                    <h5 class="mb-0">
-                       <button
-                          class="btn btn-link"
-                          type="button"
-                          data-toggle="collapse"
-                          data-target="#deuxiemeCollapse"
-                          aria-expanded="true"
-                          aria-controls="deuxiemeCollapse">
-                       Tag
+              <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Compétences
                     </button>
-                 </h5>
-              </div>
-              <div id="deuxiemeCollapse"
-                    class="collapse"
-                    aria-labelledby="deuxiemeTitre"
-                    data-parent="#Exempleaccordion">
-                 <div class="card-body">
-                    Le CSS est un langage de style qui définit la présentation des documents HTML.
-                    Par exemple, CSS couvre les polices, les couleurs, les marges,
-               les lignes, la hauteur, la largeur, les images d’arrière-plan,
-               les positionnements évolués et bien d’autres choses.
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <div class="card-body" *ngFor="let competence of get.competences">
+
+                        {{competence.libelle}}
+
+                      </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Tags
+                    </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
                     </div>
-                 </div>
-              </div>
-
-
+                  </div>
+                </div>
 
               </div>
           </div>
+        </div>
     </div>
-
-    </div>
-
-
-
-
 </div>
 

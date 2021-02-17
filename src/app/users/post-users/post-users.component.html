@@ -1,90 +1,104 @@
-
-
- <!-- Default form register -->
- <ng-container *ngIf="isSuccessful" class="border border-light p-5 w-50 shadow-lg p-3 bg-white">
-   <p class="text-center alert alert-success p-2 rounded">
-     Create new user successfully!
-   </p>
-
- </ng-container>
  <div class=" row p-3 justify-content-center costum-line">
- <form [formGroup] ="contactForm" (ngSubmit)="onSubmit()"   *ngIf="!isSuccessful"  novalidate class="text-center border border-light w-75 h-75 shadow-lg p-3 mb-5 bg-white ">
+    <form [formGroup] ="contactForm" (ngSubmit)="onSubmit()" novalidate class="text-center border border-light w-75 h-75 shadow-lg p-3 mb-5 bg-white ">
 
-  <p class="h4 mb-4">Ajouter un nouveau utilisateur </p>
-  <hr>
-  <img [src]="imgSrc"  class="rounded-circle border" style="width: 152px;height: 152px;" >
-  <br>
-  <br>
-  <div class="form-row mb-4">
-    <div class="col">
-      <!-- First name -->
-      <input type="text" class="form-control" name="prenom" formControlName="prenom" placeholder="Prenom" required />
-        <small class="text-danger" *ngIf="(f.prenom.touched || submitted) && f.prenom.errors?.required"> Prenom est requis</small>
-
-    </div>
-    <div class="col">
-      <!-- Last name -->
-      <input type="text" class="form-control" name="nom" formControlName="nom" placeholder="Nom" required />
-      <small class="text-danger" *ngIf="(f.nom.touched || submitted) && f.nom.errors?.required"> Nom est requis</small>
-    </div>
-  </div>
-
-
-  <!-- Username -->
-  <input type="text" class="form-control" name="username" formControlName="username" minlength="3" maxlength="20"  required id="defaultRegisterFormUsername" class="form-control mb-4" placeholder="Username">
-    <small class="text-danger" *ngIf="(f.nom.touched || submitted) && f.nom.errors?.required"> Username est requis</small>
-    <small class="text-danger" *ngIf="(submitted) && f.nom.errors?.userNameNotAvailable"> Username est plus disponible</small>
-
-  <!-- E-mail -->
-  <input type="email" class="form-control mb-4" name="email" formControlName="email" placeholder="E-mail" required />
-    <small class="text-danger" *ngIf="(f.email.touched || submitted) && f.email.errors?.required"> Email est requis</small>
-    <small class="text-danger" *ngIf="(f.email.touched || submitted) && f.email.errors?.email"> Mettre un mail valide</small>
-
-
-  <!-- Password -->
-  <div class="form-row mb-4">
-    <div class="col">
-      <input type="password"  class="form-control" name="password" formControlName="password"   minlength="6" required  placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
-      <small class="text-danger" *ngIf="(f.password.touched || submitted) && f.password.errors?.required">Password est requis</small>
-      <small class="text-danger" *ngIf="(f.password.touched || submitted) && f.password.errors?.invalidPassword">Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase letter and 1 number</small>
-
-    </div>
-    <div class="col">
-      <input type="password"  class="form-control" name="confimPassword" formControlName="confirmePassword"   minlength="6" required  placeholder="confirmPassword" aria-describedby="defaultRegisterFormConfirmPasswordHelpBlock">
-        <small class="text-danger" *ngIf="(f.password.touched || submitted) && f.password.errors?.required">Password est requis</small>
-        <small class="text-danger" *ngIf="f.password.touched && f.password.errors?.passwordMismatch"> Les Mots de passe sont différents</small>
-      </div>
-  </div>
-
-  <!-- Newsletter -->
-
-  <div class="form-row mb-4">
-    <div class="col">
-      <select name="profil" class="form-control" name="profil" formControlName="profil"  required value="Choix de profil  ">
-        <option value="">Choix de profil</option>
-        <option value="CM">CM</option>
-        <option value="Apprenant">Apprenant</option>
-        <option value="Formateur">Formateur</option>
-        <option value="Admin">Admin</option>
-      </select>
-      <small class="text-danger" *ngIf="(f.profil.touched || submitted) && f.profil.errors?.required"> Choisi un profil</small>
-    </div>
-
-      <div class="col">
-      <!-- Phone number -->
-        <input type="text" name="phone" class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
-        <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted">
-          Optional - for two-step authentication
-        </small>
-      </div>
-      <input type="file" multiple accept="image/*"  class="form-control mb-3" (change)="onFileSelect($event)" name="avatar" formControlName="avatar">
-      <small class="text-danger" *ngIf="(f.avatar.touched || submitted) && f.avatar.errors?.required"> Choisi un Avatar</small>
+      <p class="h4 mb-4">Ajouter un nouveau utilisateur </p>
+      <hr>
+      <img [src]="imgSrc"  class="rounded-circle border" style="width: 152px;height: 152px;" >
       <br>
-  </div>
+      <br>
+
+      <div class="form-row mb-4">
+
+        <div class="col">
+            <input type="text" class="form-control" name="prenom" formControlName="prenom" placeholder="Prenom" required />
+            <small class="text-danger" *ngIf="(f.prenom.touched || submitted) && f.prenom.errors?.required"> Prenom est requis</small>
+        </div>
+
+        <div class="col">
+          <input type="text" class="form-control" name="nom" formControlName="nom" placeholder="Nom" required />
+          <small class="text-danger" *ngIf="(f.nom.touched || submitted) && f.nom.errors?.required"> Nom est requis</small>
+        </div>
+
+      </div>
+
+      <div class="form-row mb-4">
+
+        <div class="col">
+          <input type="text" class="form-control" name="username" formControlName="username"  required class="form-control  " placeholder="Username">
+          <small class="text-danger" *ngIf="(f.username.touched || submitted) && f.username.errors?.required"> Username est requis</small>
+        </div>
+
+        <div class="col">
+          <input type="email" class="form-control" name="email" formControlName="email" placeholder="E-mail" required />
+            <small class="text-danger" *ngIf="(f.email.touched || submitted) && f.email.errors?.required"> Email est requis</small>
+            <small class="text-danger" *ngIf="(f.email.touched || submitted) && f.email.errors?.email"> Mettre un mail valide</small>
+        </div>
+
+      </div>
 
 
-    <!-- Sign up button -->
-    <button class="btn btn-primary mb-5" type="submit"><span class="fa fa-send"></span> Envoyer</button>
+      <div class="form-row mb-4">
+
+        <div class="col">
+          <input type="password"  class="form-control" name="password" formControlName="password"   minlength="6" required  placeholder="Password" >
+          <small class="text-danger" *ngIf="(f.password.touched || submitted) && f.password.errors?.required">Password est requis</small>
+          <small class="text-danger" *ngIf="(f.password.touched || submitted) && f.password.errors?.invalidPassword">Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase letter and 1 number</small>
+        </div>
+
+        <div class="col">
+          <input type="password"  class="form-control" name="confimPassword" formControlName="confirmPassword"   minlength="6" required  placeholder="confirmPassword" >
+            <small class="text-danger" *ngIf="(f.confirmPassword.touched || submitted) && f.confirmPassword.errors?.required">Password est requis</small>
+            <small class="text-danger" *ngIf="f.confirmPassword.touched && f.confirmPassword.errors?.passwordMismatch"> Les Mots de passe sont différents</small>
+        </div>
+
+      </div>
+
+
+      <div class="form-row mb-4">
+
+          <div class="col">
+            <select name="profil" class="form-control" name="profil" formControlName="profil"  required value="Choix de profil  ">
+              <option value="">Choix de profil</option>
+              <option value="CM">CM</option>
+              <option value="Apprenant">Apprenant</option>
+              <option value="Formateur">Formateur</option>
+              <option value="Admin">Admin</option>
+            </select>
+            <small class="text-danger" *ngIf="(f.profil.touched || submitted) && f.profil.errors?.required"> Choisir un profil</small>
+          </div>
+
+          <div class="col">
+            <input type="text" name="phone" class="form-control" placeholder="Phone number" class="form-control" >
+          </div>
+
+      </div>
+        <div>
+
+          <input type="file"  accept="image/*"  class="form-control mb-4" (change)="onFileSelect($event)" name="avatar" formControlName="avatar">
+
+        </div>
+        <br>
+
+      <button class="btn btn-primary mb-5" type="submit"><span class="fa fa-send"></span> Envoyer</button>
+
+
+
+    <ng-container *ngIf="isSignUpFailed" class="border border-light p-5 w-50 shadow-lg p-3 bg-white">
+      <p class="text-center alert alert-danger p-2 rounded">
+       {{errorMessage}}
+      </p>
+
+    </ng-container>
+
+     <ng-container *ngIf="isSuccessful" class="border border-light p-5 w-50 shadow-lg p-3 bg-white">
+      <p class="text-center alert alert-success p-2 rounded">
+        Vous avez créer un nouveau utilisateur avec succés!
+      </p>
+     </ng-container>
+
+
   </form>
+
+
+
 </div>
-<!-- Default form register -->

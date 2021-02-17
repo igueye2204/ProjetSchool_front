@@ -25,11 +25,16 @@ import { UserDetailComponent } from './users/user-detail/user-detail.component';
 import { DeletedUsersComponent } from './users/deleted-users/deleted-users.component';
 import { DeletedProfilComponent } from './profil/deleted-profil/deleted-profil.component';
 import { DeleteProfilComponent } from './parametres/profil-sortie/profilSortie/delete-profil/delete-profil.component';
+import { PostCompetencesComponent } from './parametres/competences/post-competences/post-competences.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'profile',
+  children:[
+      {path: '', component: ProfileComponent },
+      {path: 'editprofile', component: EditProfilComponent },
+  ]},
   {
     path: 'admin',
     component: UsersComponent ,
@@ -71,9 +76,14 @@ const routes: Routes = [
         },
         { path: 'promos', component: PromoComponent },
         { path: 'referentiels', component: ReferentielsComponent },
-        { path: 'competences', component: CompetencesComponent },
         {
-          path: 'profilsorties',
+          path: 'competences',
+            children:[
+              { path: '', component: CompetencesComponent },
+              { path: 'addcompetence', component: PostCompetencesComponent }
+            ]
+        },
+        { path: 'profilsorties',
           children:[
             { path: '', component: ProfilSortieComponent },
             { path: 'editprofilsortie/:id', component: EditProfilSortieComponent },

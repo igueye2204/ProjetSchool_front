@@ -45,11 +45,13 @@ export class DeletedProfilComponent implements OnInit {
 
   desarchiveProfil(id:number){
     console.log(id);
+    if (confirm('voulez vous vraiment désarchivé cet utilisater')) {
       this.profil.desarchiveProfil(id).subscribe(
         res=>{
           window.location.reload();
         }
         )
+    }
 
   }
 

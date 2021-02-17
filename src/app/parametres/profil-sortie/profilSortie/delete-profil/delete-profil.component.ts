@@ -45,7 +45,8 @@ export class DeleteProfilComponent implements OnInit {
   }
 
   desarchiveProfil(id:number){
-    console.log(id);
+
+    if(confirm('Voulez vous vraiment desarchiver ce profil de sortie'))
       this.profilSortie.desarchiveProfilSortie(id).subscribe(
         res=>{
           window.location.reload();
