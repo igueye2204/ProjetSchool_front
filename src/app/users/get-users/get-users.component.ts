@@ -23,12 +23,14 @@ export class GetUsersComponent implements OnInit {
   tableSizes = [5, 10, 15];
   searchResult: User[];
   f:NgForm;
+  loading = false;
+
   constructor(private user:UserService, private router: Router) {
   }
 
 
   ngOnInit(): void {
-
+    this.loading = true;
     this.searchResult = [];
     this.fetchPosts();
   }
@@ -37,6 +39,7 @@ export class GetUsersComponent implements OnInit {
 
     this.user.getAllUser().subscribe(
       data =>{
+        this.loading = false;
             this.POSTS = data;
         },
         error =>{

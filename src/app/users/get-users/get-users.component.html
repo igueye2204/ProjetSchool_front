@@ -20,7 +20,7 @@
     </div>
   </div>
   <input class="form-control mr-sm-2 w-25" type="search" [(ngModel)]="searchText" placeholder="Chercher">
-
+  <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
 <table class="table table-responsive-lg table-hover">
   <thead>
     <tr>
