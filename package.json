@@ -26,6 +26,7 @@
     "@ng-select/ng-select": "^5.0.15",
     "@techiediaries/ngx-qrcode": "^9.1.0",
     "accordion": "^3.0.2",
+    "angular-cli": "^1.0.0-beta.28.3",
     "angular-confirm": "^2.0.0-alpha.2",
     "angular-confirm1": "^1.1.0",
     "angular-dropdown": "^0.5.5",

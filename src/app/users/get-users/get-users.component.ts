@@ -71,8 +71,7 @@ export class GetUsersComponent implements OnInit {
     this.user.deleteUserById(id).subscribe(
         res=>{
           window.location.reload();
-        }
-    )
+        });
   }
 
 }
